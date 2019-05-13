@@ -215,7 +215,7 @@
                 }
 
                 this.wrapRect = this.$el.getBoundingClientRect();
-                if (!this.picker) {
+                if (!this.picker || this.startDate) {     //如果输入框默认不是当天的时间，则需要加上startDate的判断
                     this.picker = new Vue(DateRangePickerPanel).$mount();
                     this.picker.pickerOptions = { ...this.pickerOptions };
                     this.picker.leftDate = this.leftDate;
